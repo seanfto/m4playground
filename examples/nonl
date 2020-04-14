@@ -1,0 +1,5 @@
+`The result is:'
+divert(-1)
+define(`name', `value')
+divert(0)dnl
+name

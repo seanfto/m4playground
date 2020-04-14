@@ -1,0 +1,3 @@
+`The result is:'
+define(`name', `value')
+name
