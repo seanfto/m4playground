@@ -1,0 +1,24 @@
+# run
+#
+# $ podman build -t m4container -f container.src
+#
+#
+
+FROM docker.io/library/ubuntu:16.04
+
+RUN apt update
+RUN apt install -y curl git-core diffstat unzip m4
+
+# replace GID, UID and user according to your needs
+RUN groupadd -g 1000 spalade
+RUN useradd -g 1000 -u 1000 spalade
+
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y locales \
+    && sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
+    && dpkg-reconfigure --frontend=noninteractive locales \
+    && update-locale LANG=en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+
+ENTRYPOINT "/bin/bash"
