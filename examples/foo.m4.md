@@ -1,7 +1,6 @@
+1. one
 
-ne
-
-    simply the chars one and newline, this doesn't match any macro(so far),
+   simply the chars one and newline, this doesn't match any macro(so far),
    so it's copied to the output as-is.
 2. define(``one',` `ONE')dnl
    
